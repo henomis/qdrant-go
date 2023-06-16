@@ -4,9 +4,10 @@ import (
 	"context"
 	"net/http"
 
-	collectionrequest "github.com/henomis/qdrant-go/request/collection"
-	collectionresponse "github.com/henomis/qdrant-go/response/collection"
 	"github.com/henomis/restclientgo"
+
+	"github.com/henomis/qdrant-go/request"
+	"github.com/henomis/qdrant-go/response"
 )
 
 type Client struct {
@@ -32,6 +33,14 @@ func New(endpoint, apiKey string) *Client {
 	}
 }
 
-func (c *Client) CollectionList(ctx context.Context, req *collectionrequest.List, res *collectionresponse.List) error {
+func (c *Client) CollectionList(ctx context.Context, req *request.CollectionList, res *response.CollectionList) error {
+	return c.restClient.Get(ctx, req, res)
+}
+
+func (c *Client) CollectionCreate(ctx context.Context, req *request.CollectionCreate, res *response.CollectionCreate) error {
+	return c.restClient.Put(ctx, req, res)
+}
+
+func (c *Client) CollectionCollectInfo(ctx context.Context, req *request.CollectionCollectInfo, res *response.CollectionCollectInfo) error {
 	return c.restClient.Get(ctx, req, res)
 }
