@@ -85,6 +85,20 @@ You can load qdrant-go into your project by using:
 go get github.com/henomis/qdrant-go
 ```
 
+### Run Qdrant
+
+You can run Qdrant using Docker:
+```shell
+docker run -p 6333:6333 --name qdrant --rm -v $(pwd)/config.yaml:/qdrant/config/production.yaml qdrant/qdrant
+```
+
+config.yaml file:
+```yaml
+service:
+  api_key: secret-api-key
+```
+
+Please refer to the [official documentation](https://qdrant.tech/) for more information about Qdrant.
 
 ### Configuration
 
