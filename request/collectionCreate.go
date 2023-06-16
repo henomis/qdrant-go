@@ -66,12 +66,12 @@ type InitFrom struct {
 	Collection string `json:"collection"`
 }
 
-func (r *CollectionCreate) Path() (string, error) {
-	return fmt.Sprintf("/collections/%s", r.CollectionName), nil
+func (c *CollectionCreate) Path() (string, error) {
+	return fmt.Sprintf("/collections/%s", c.CollectionName), nil
 }
 
-func (l *CollectionCreate) Encode() (io.Reader, error) {
-	jsonBytes, err := json.Marshal(l)
+func (c *CollectionCreate) Encode() (io.Reader, error) {
+	jsonBytes, err := json.Marshal(c)
 	if err != nil {
 		return nil, err
 	}
@@ -79,6 +79,6 @@ func (l *CollectionCreate) Encode() (io.Reader, error) {
 	return bytes.NewReader(jsonBytes), nil
 }
 
-func (l *CollectionCreate) ContentType() string {
+func (c *CollectionCreate) ContentType() string {
 	return "application/json"
 }

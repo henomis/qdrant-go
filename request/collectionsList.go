@@ -5,14 +5,14 @@ import "io"
 type CollectionList struct {
 }
 
-func (r *CollectionList) Path() (string, error) {
+func (c *CollectionList) Path() (string, error) {
 	return "/collections", nil
 }
 
-func (l *CollectionList) Encode() (io.Reader, error) {
+func (c *CollectionList) Encode() (io.Reader, error) {
 	return nil, nil
 }
 
-func (l *CollectionList) ContentType() string {
+func (c *CollectionList) ContentType() string {
 	return ""
 }

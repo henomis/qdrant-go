@@ -18,10 +18,10 @@ type Collection struct {
 	Name string `json:"name"`
 }
 
-func (l *CollectionList) AcceptContentType() string {
+func (c *CollectionList) AcceptContentType() string {
 	return "application/json"
 }
 
-func (l *CollectionList) Decode(body io.Reader) error {
-	return json.NewDecoder(body).Decode(l)
+func (c *CollectionList) Decode(body io.Reader) error {
+	return json.NewDecoder(body).Decode(c)
 }

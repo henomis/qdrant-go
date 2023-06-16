@@ -13,17 +13,16 @@ func main() {
 
 	client := qdrantgo.New("http://localhost:6333", "")
 
-	onDisk := true
-	resp := &response.CollectionCreate{}
-	err := client.CollectionCreate(
+	withPayload := true
+	resp := &response.PointSearch{}
+	err := client.PointSearch(
 		context.Background(),
-		&request.CollectionCreate{
+		&request.PointSearch{
 			CollectionName: "test",
-			Vectors: request.VectorsParams{
-				Size:     4,
-				Distance: request.DistanceCosine,
-				OnDisk:   &onDisk,
-			},
+			Vector:         []float64{1.1, 2.2, 3.3, 4.4},
+			Limit:          10,
+			WithPayload:    &withPayload,
+			WithVector:     &withPayload,
 		},
 		resp,
 	)

@@ -68,10 +68,10 @@ type OptimizersConfig struct {
 	MaxOptimizationThreads *uint    `json:"max_optimization_threads,omitempty"`
 }
 
-func (l *CollectionCollectInfo) AcceptContentType() string {
+func (c *CollectionCollectInfo) AcceptContentType() string {
 	return "application/json"
 }
 
-func (l *CollectionCollectInfo) Decode(body io.Reader) error {
-	return json.NewDecoder(body).Decode(l)
+func (c *CollectionCollectInfo) Decode(body io.Reader) error {
+	return json.NewDecoder(body).Decode(c)
 }

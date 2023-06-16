@@ -44,3 +44,11 @@ func (c *Client) CollectionCreate(ctx context.Context, req *request.CollectionCr
 func (c *Client) CollectionCollectInfo(ctx context.Context, req *request.CollectionCollectInfo, res *response.CollectionCollectInfo) error {
 	return c.restClient.Get(ctx, req, res)
 }
+
+func (c *Client) PointUpsert(ctx context.Context, req *request.PointUpsert, res *response.PointUpsert) error {
+	return c.restClient.Put(ctx, req, res)
+}
+
+func (c *Client) PointSearch(ctx context.Context, req *request.PointSearch, res *response.PointSearch) error {
+	return c.restClient.Post(ctx, req, res)
+}
