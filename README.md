@@ -134,7 +134,7 @@ func main() {
 		&request.CollectionCreate{
 			CollectionName: "test",
 			Vectors: request.VectorsParams{
-				Size:     1536,
+				Size:     4,
 				Distance: request.DistanceCosine,
 				OnDisk:   &onDisk,
 			},
