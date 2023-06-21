@@ -7,19 +7,19 @@ import (
 
 type PointUpsert struct {
 	Response
-	Result PointUpsertResult `json:"result"`
+	Result PointOperationResult `json:"result"`
 }
 
-type PointUpsertResultStatus string
+type PointOperationResultStatus string
 
 const (
-	PointUpsertResultStatusAcknowledged PointUpsertResultStatus = "acknowledged"
-	PointUpsertResultStatusCompleted    PointUpsertResultStatus = "completed"
+	PointOperationResultStatusAcknowledged PointOperationResultStatus = "acknowledged"
+	PointOperationResultStatusCompleted    PointOperationResultStatus = "completed"
 )
 
-type PointUpsertResult struct {
-	OperationID uint64                  `json:"operation_id"`
-	Status      PointUpsertResultStatus `json:"status"`
+type PointOperationResult struct {
+	OperationID uint64                     `json:"operation_id"`
+	Status      PointOperationResultStatus `json:"status"`
 }
 
 func (p *PointUpsert) AcceptContentType() string {
