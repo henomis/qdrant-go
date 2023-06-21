@@ -37,7 +37,7 @@ func (p *PointSearch) Path() (string, error) {
 	path := fmt.Sprintf("/collections/%s/points/search", p.CollectionName)
 
 	urlValues := restclientgo.NewURLValues()
-	urlValues.Add("ordering", (*string)(p.Consistency))
+	urlValues.Add("consistency", (*string)(p.Consistency))
 
 	urlValuesEncoded := urlValues.Encode()
 	if urlValuesEncoded != "" {
