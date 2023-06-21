@@ -52,3 +52,7 @@ func (c *Client) PointUpsert(ctx context.Context, req *request.PointUpsert, res 
 func (c *Client) PointSearch(ctx context.Context, req *request.PointSearch, res *response.PointSearch) error {
 	return c.restClient.Post(ctx, req, res)
 }
+
+func (c *Client) PointDelete(ctx context.Context, req *request.PointDelete, res *response.PointDelete) error {
+	return c.restClient.Post(ctx, req, res)
+}

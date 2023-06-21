@@ -13,7 +13,7 @@ type PointSearch struct {
 	CollectionName string             `json:"-"`
 	Consistency    *string            `json:"-"`
 	Vector         []float64          `json:"vector"`
-	Filter         interface{}        `json:"filter,omitempty"`
+	Filter         Filter             `json:"filter,omitempty"`
 	Params         *PointSearchParams `json:"params,omitempty"`
 	Limit          int                `json:"limit"`
 	Offset         int                `json:"offset"`
