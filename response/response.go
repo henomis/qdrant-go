@@ -1,6 +1,10 @@
 package response
 
-import "io"
+import (
+	"io"
+
+	"github.com/henomis/restclientgo"
+)
 
 type Response struct {
 	Code    int     `json:"-"`
@@ -33,5 +37,9 @@ func (r *Response) SetBody(body io.Reader) error {
 	s := string(b)
 	r.RawBody = &s
 
+	return nil
+}
+
+func (r *Response) SetHeaders(headers restclientgo.Headers) error {
 	return nil
 }
