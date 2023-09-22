@@ -31,7 +31,7 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 
 
 ### points 
-- ❌ get point
+- ✅ get point
 - ❌ get points
 - ✅ upsert points
 - ✅ delete points

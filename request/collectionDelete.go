@@ -14,9 +14,7 @@ type CollectionDelete struct {
 
 func (c *CollectionDelete) Path() (string, error) {
 	var urlValues restclientgo.URLValues
-	if c.Timeout != nil {
-		urlValues.AddInt("timeout", c.Timeout)
-	}
+	urlValues.AddInt("timeout", c.Timeout)
 
 	parameters := ""
 	if len(urlValues) > 0 {

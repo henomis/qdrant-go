@@ -88,3 +88,11 @@ func (c *Client) PointDelete(
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }
+
+func (c *Client) PointGet(
+	ctx context.Context,
+	req *request.PointGet,
+	res *response.PointGet,
+) error {
+	return c.restClient.Get(ctx, req, res)
+}
