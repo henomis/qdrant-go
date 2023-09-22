@@ -1,6 +1,8 @@
 package request
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -8,11 +10,11 @@ import (
 )
 
 type PointsGet struct {
-	CollectionName string  `json:"-"`
-	Consistency    *string `json:"-"`
-	IDs            []string
-	WithPayload    *bool `json:"with_payload,omitempty"`
-	WithVector     *bool `json:"with_vector,omitempty"`
+	CollectionName string   `json:"-"`
+	Consistency    *string  `json:"-"`
+	IDs            []string `json:"ids,omitempty"`
+	WithPayload    *bool    `json:"with_payload,omitempty"`
+	WithVector     *bool    `json:"with_vector,omitempty"`
 }
 
 func (p *PointsGet) Path() (string, error) {
@@ -28,9 +30,14 @@ func (p *PointsGet) Path() (string, error) {
 }
 
 func (p *PointsGet) Encode() (io.Reader, error) {
-	return nil, nil
+	jsonBytes, err := json.Marshal(p)
+	if err != nil {
+		return nil, err
+	}
+
+	return bytes.NewReader(jsonBytes), nil
 }
 
 func (p *PointsGet) ContentType() string {
-	return ""
+	return "application/json"
 }

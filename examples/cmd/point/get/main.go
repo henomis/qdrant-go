@@ -18,7 +18,7 @@ func main() {
 		context.Background(),
 		&request.PointGet{
 			CollectionName: "test",
-			ID:             "1",
+			ID:             "45b07125-f592-414f-a9d0-160c8ecc283a",
 		},
 		resp,
 	)
