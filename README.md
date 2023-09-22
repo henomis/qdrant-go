@@ -32,7 +32,7 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 
 ### points 
 - ✅ get point
-- ❌ get points
+- ✅ get points
 - ✅ upsert points
 - ✅ delete points
 - ❌ update vectors

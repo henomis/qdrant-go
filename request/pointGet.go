@@ -1,8 +1,6 @@
 package request
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
 	"io"
 
@@ -28,14 +26,9 @@ func (p *PointGet) Path() (string, error) {
 }
 
 func (p *PointGet) Encode() (io.Reader, error) {
-	jsonBytes, err := json.Marshal(p)
-	if err != nil {
-		return nil, err
-	}
-
-	return bytes.NewReader(jsonBytes), nil
+	return nil, nil
 }
 
 func (p *PointGet) ContentType() string {
-	return "application/json"
+	return ""
 }

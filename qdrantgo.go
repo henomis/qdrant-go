@@ -96,3 +96,11 @@ func (c *Client) PointGet(
 ) error {
 	return c.restClient.Get(ctx, req, res)
 }
+
+func (c *Client) PointsGet(
+	ctx context.Context,
+	req *request.PointsGet,
+	res *response.PointsGet,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}
