@@ -7,7 +7,7 @@ import (
 
 type PointDelete struct {
 	Response
-	Result PointOperationResult `json:"result"`
+	Result OperationResult `json:"result"`
 }
 
 func (p *PointDelete) AcceptContentType() string {

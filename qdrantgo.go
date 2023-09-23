@@ -73,6 +73,14 @@ func (c *Client) CollectionUpdate(
 	return c.restClient.Patch(ctx, req, res)
 }
 
+func (c *Client) IndexCreate(
+	ctx context.Context,
+	req *request.IndexCreate,
+	res *response.IndexCreate,
+) error {
+	return c.restClient.Put(ctx, req, res)
+}
+
 func (c *Client) PointUpsert(
 	ctx context.Context,
 	req *request.PointUpsert,

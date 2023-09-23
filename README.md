@@ -18,7 +18,7 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 - ✅ update
 - ✅ delete
 - ❌ update aliases
-- ❌ create index
+- ✅ create index
 - ❌ delete index
 - ❌ cluster info
 - ❌ update cluster setup
