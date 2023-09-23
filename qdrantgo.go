@@ -65,6 +65,14 @@ func (c *Client) CollectionDelete(
 	return c.restClient.Delete(ctx, req, res)
 }
 
+func (c *Client) CollectionUpdate(
+	ctx context.Context,
+	req *request.CollectionUpdate,
+	res *response.CollectionUpdate,
+) error {
+	return c.restClient.Patch(ctx, req, res)
+}
+
 func (c *Client) PointUpsert(
 	ctx context.Context,
 	req *request.PointUpsert,
