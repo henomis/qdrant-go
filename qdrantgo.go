@@ -18,7 +18,7 @@ type Client struct {
 
 func New(endpoint, apiKey string) *Client {
 
-	restClient := restclientgo.New(endpoint)
+	restClient := restclientgo.New(endpoint).WithDecodeOnError(true)
 
 	if len(apiKey) > 0 {
 		restClient.SetRequestModifier(func(req *http.Request) *http.Request {

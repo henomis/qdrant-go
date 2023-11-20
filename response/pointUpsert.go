@@ -27,5 +27,11 @@ func (p *PointUpsert) AcceptContentType() string {
 }
 
 func (p *PointUpsert) Decode(body io.Reader) error {
-	return json.NewDecoder(body).Decode(p)
+	err := json.NewDecoder(body).Decode(p)
+	if err != nil {
+		return err
+	}
+
+	p.Response.SetStatusMessage()
+	return nil
 }

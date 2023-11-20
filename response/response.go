@@ -7,10 +7,11 @@ import (
 )
 
 type Response struct {
-	Code    int     `json:"-"`
-	Time    float64 `json:"time"`
-	Status  string  `json:"status"`
-	RawBody *string `json:"-"`
+	Code      int     `json:"-"`
+	Time      float64 `json:"time"`
+	RawStatus any     `json:"status"`
+	Status    string  `json:"-"`
+	RawBody   *string `json:"-"`
 }
 
 type Detail struct {
@@ -42,4 +43,15 @@ func (r *Response) SetBody(body io.Reader) error {
 
 func (r *Response) SetHeaders(headers restclientgo.Headers) error {
 	return nil
+}
+
+func (r *Response) SetStatusMessage() {
+	switch status := r.RawStatus.(type) {
+	case string:
+		r.Status = status
+	case map[string]interface{}:
+		if errorMessage, ok := status["error"].(string); ok {
+			r.Status = errorMessage
+		}
+	}
 }
