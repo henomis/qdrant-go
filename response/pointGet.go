@@ -21,5 +21,11 @@ func (p *PointGet) AcceptContentType() string {
 }
 
 func (p *PointGet) Decode(body io.Reader) error {
-	return json.NewDecoder(body).Decode(p)
+	err := json.NewDecoder(body).Decode(p)
+	if err != nil {
+		return err
+	}
+
+	p.Response.SetStatusMessage()
+	return nil
 }

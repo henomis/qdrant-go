@@ -15,5 +15,11 @@ func (c *CollectionUpdate) AcceptContentType() string {
 }
 
 func (c *CollectionUpdate) Decode(body io.Reader) error {
-	return json.NewDecoder(body).Decode(c)
+	err := json.NewDecoder(body).Decode(c)
+	if err != nil {
+		return err
+	}
+
+	c.Response.SetStatusMessage()
+	return nil
 }
