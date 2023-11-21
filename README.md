@@ -35,8 +35,8 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 - ✅ get points
 - ✅ upsert points
 - ✅ delete points
-- ❌ update vectors
-- ❌ delete vectors
+- ✅ update vectors
+- ✅ delete vectors
 - ❌ set payload
 - ❌ overwrite payload
 - ❌ delete payload
