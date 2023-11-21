@@ -81,6 +81,14 @@ func (c *Client) IndexCreate(
 	return c.restClient.Put(ctx, req, res)
 }
 
+func (c *Client) IndexDelete(
+	ctx context.Context,
+	req *request.IndexDelete,
+	res *response.IndexDelete,
+) error {
+	return c.restClient.Delete(ctx, req, res)
+}
+
 func (c *Client) PointUpsert(
 	ctx context.Context,
 	req *request.PointUpsert,

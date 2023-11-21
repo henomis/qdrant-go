@@ -14,7 +14,7 @@ type PointGet struct {
 }
 
 func (p *PointGet) Path() (string, error) {
-	var urlValues restclientgo.URLValues
+	var urlValues = restclientgo.URLValues{}
 	urlValues.Add("consistency", p.Consistency)
 
 	parameters := ""

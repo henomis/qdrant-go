@@ -18,8 +18,8 @@ type IndexCreate struct {
 }
 
 func (c *IndexCreate) Path() (string, error) {
-	var urlValues restclientgo.URLValues
-	urlValues.AddBool("timeout", c.Wait)
+	var urlValues = restclientgo.URLValues{}
+	urlValues.AddBool("wait", c.Wait)
 	urlValues.Add("ordering", (*string)(c.Ordering))
 
 	parameters := ""
@@ -27,7 +27,7 @@ func (c *IndexCreate) Path() (string, error) {
 		parameters = "?" + urlValues.Encode()
 	}
 
-	return fmt.Sprintf("/collections/%s%s", c.CollectionName, parameters), nil
+	return fmt.Sprintf("/collections/%s/index%s", c.CollectionName, parameters), nil
 }
 
 func (c *IndexCreate) Encode() (io.Reader, error) {
