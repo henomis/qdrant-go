@@ -128,3 +128,11 @@ func (c *Client) PointsGet(
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }
+
+func (c *Client) VectorsDelete(
+	ctx context.Context,
+	req *request.VectorsDelete,
+	res *response.VectorsDelete,
+) error {
+	return c.restClient.Post(ctx, req, res)
+}
