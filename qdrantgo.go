@@ -89,26 +89,26 @@ func (c *Client) IndexDelete(
 	return c.restClient.Delete(ctx, req, res)
 }
 
-func (c *Client) PointUpsert(
+func (c *Client) PointsUpsert(
 	ctx context.Context,
-	req *request.PointUpsert,
-	res *response.PointUpsert,
+	req *request.PointsUpsert,
+	res *response.PointsUpsert,
 ) error {
 	return c.restClient.Put(ctx, req, res)
 }
 
-func (c *Client) PointSearch(
+func (c *Client) PointsSearch(
 	ctx context.Context,
-	req *request.PointSearch,
-	res *response.PointSearch,
+	req *request.PointsSearch,
+	res *response.PointsSearch,
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }
 
-func (c *Client) PointDelete(
+func (c *Client) PointsDelete(
 	ctx context.Context,
-	req *request.PointDelete,
-	res *response.PointDelete,
+	req *request.PointsDelete,
+	res *response.PointsDelete,
 ) error {
 	return c.restClient.Post(ctx, req, res)
 }

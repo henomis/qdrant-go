@@ -14,7 +14,7 @@ func main() {
 	client := qdrantgo.New("http://localhost:6333", "")
 
 	wait := true
-	resp := &response.PointDelete{}
+	resp := &response.PointsDelete{}
 	err := client.PointDelete(
 		context.Background(),
 		&request.PointDelete{

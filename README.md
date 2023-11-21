@@ -1,6 +1,5 @@
 # Unofficial Qdrant Go SDK
 
-
 [![GoDoc](https://godoc.org/github.com/henomis/qdrant-go?status.svg)](https://godoc.org/github.com/henomis/qdrant-go) [![Go Report Card](https://goreportcard.com/badge/github.com/henomis/qdrant-go)](https://goreportcard.com/report/github.com/henomis/qdrant-go) [![GitHub release](https://img.shields.io/github/release/henomis/qdrant-go.svg)](https://github.com/henomis/qdrant-go/releases)
 
 This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to enable you to use Qdrant's services easily from your own applications.
@@ -12,6 +11,7 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 ## API support
 
 ### collections
+
 - ✅ list
 - ✅ create
 - ✅ collect info
@@ -19,7 +19,7 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 - ✅ delete
 - ❌ update aliases
 - ✅ create index
-- ❌ delete index
+- ✅ delete index
 - ❌ cluster info
 - ❌ update cluster setup
 - ❌ list aliases
@@ -29,8 +29,8 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 - ❌ delete snapshot
 - ❌ download snapshot
 
+### points
 
-### points 
 - ✅ get point
 - ✅ get points
 - ✅ upsert points
@@ -51,6 +51,7 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 - ❌ count points
 
 ### cluster
+
 - ❌ cluster status info
 - ❌ tries to recover current peer Raft state
 - ❌ remove peer
@@ -58,6 +59,7 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 - ❌ update collection cluster setup
 
 ### snapshots
+
 - ❌ recover from uploaded snapshot
 - ❌ recover from snapshot
 - ❌ list collection snapshots
@@ -70,17 +72,18 @@ This is [Qdrant](https://qdrant.tech/)'s **unofficial** Go client, designed to e
 - ❌ download storage snapshot
 
 ### service
+
 - ❌ collect telemetry data
 - ❌ collect Prometheus metrics data
 - ❌ set lock options
 - ❌ get lock options
-
 
 ## Getting started
 
 ### Installation
 
 You can load qdrant-go into your project by using:
+
 ```
 go get github.com/henomis/qdrant-go
 ```
@@ -88,11 +91,13 @@ go get github.com/henomis/qdrant-go
 ### Run Qdrant
 
 You can run Qdrant using Docker:
+
 ```shell
 docker run -p 6333:6333 --name qdrant --rm -v $(pwd)/config.yaml:/qdrant/config/production.yaml qdrant/qdrant
 ```
 
 config.yaml file:
+
 ```yaml
 service:
   api_key: secret-api-key
@@ -103,7 +108,6 @@ Please refer to the [official documentation](https://qdrant.tech/) for more info
 ### Configuration
 
 The only thing you need to start using Qdrant's APIs is the API key. Copy and paste it in the corresponding place in the code, select the API and the parameters you want to use, and that's it.
-
 
 ### Usage
 
@@ -152,4 +156,4 @@ func main() {
 
 ## Who uses qdrant-go?
 
-* [LinGoose](https://github.com/henomis/lingoose) Go framework for building awesome LLM apps
+- [LinGoose](https://github.com/henomis/lingoose) Go framework for building awesome LLM apps

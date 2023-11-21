@@ -14,7 +14,7 @@ func main() {
 	client := qdrantgo.New("http://localhost:6333", "")
 
 	withPayload := true
-	resp := &response.PointSearch{}
+	resp := &response.PointsSearch{}
 	err := client.PointSearch(
 		context.Background(),
 		&request.PointSearch{

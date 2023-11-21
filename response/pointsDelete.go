@@ -5,16 +5,16 @@ import (
 	"io"
 )
 
-type PointDelete struct {
+type PointsDelete struct {
 	Response
 	Result OperationResult `json:"result"`
 }
 
-func (p *PointDelete) AcceptContentType() string {
+func (p *PointsDelete) AcceptContentType() string {
 	return "application/json"
 }
 
-func (p *PointDelete) Decode(body io.Reader) error {
+func (p *PointsDelete) Decode(body io.Reader) error {
 	err := json.NewDecoder(body).Decode(p)
 	if err != nil {
 		return err

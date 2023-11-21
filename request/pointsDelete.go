@@ -9,7 +9,7 @@ import (
 	"github.com/henomis/restclientgo"
 )
 
-type PointDelete struct {
+type PointsDelete struct {
 	CollectionName string    `json:"-"`
 	Ordering       *Ordering `json:"-"`
 	Wait           *bool     `json:"-"`
@@ -25,7 +25,7 @@ type Filter struct {
 	MustNot []M `json:"must_not,omitempty"`
 }
 
-func (p *PointDelete) Path() (string, error) {
+func (p *PointsDelete) Path() (string, error) {
 	path := fmt.Sprintf("/collections/%s/points/delete", p.CollectionName)
 
 	urlValues := restclientgo.NewURLValues()
@@ -40,7 +40,7 @@ func (p *PointDelete) Path() (string, error) {
 	return path, nil
 }
 
-func (p *PointDelete) Encode() (io.Reader, error) {
+func (p *PointsDelete) Encode() (io.Reader, error) {
 	jsonBytes, err := json.Marshal(p)
 	if err != nil {
 		return nil, err
@@ -49,6 +49,6 @@ func (p *PointDelete) Encode() (io.Reader, error) {
 	return bytes.NewReader(jsonBytes), nil
 }
 
-func (p *PointDelete) ContentType() string {
+func (p *PointsDelete) ContentType() string {
 	return "application/json"
 }
