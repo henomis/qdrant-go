@@ -15,9 +15,9 @@ func main() {
 
 	wait := true
 	resp := &response.PointsDelete{}
-	err := client.PointDelete(
+	err := client.PointsDelete(
 		context.Background(),
-		&request.PointDelete{
+		&request.PointsDelete{
 			CollectionName: "test",
 			Wait:           &wait,
 			Filter: request.Filter{

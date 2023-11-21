@@ -15,9 +15,9 @@ func main() {
 
 	withPayload := true
 	resp := &response.PointsSearch{}
-	err := client.PointSearch(
+	err := client.PointsSearch(
 		context.Background(),
-		&request.PointSearch{
+		&request.PointsSearch{
 			CollectionName: "test",
 			Vector:         []float64{1.1, 2.2, 3.3, 4.4},
 			Limit:          10,
