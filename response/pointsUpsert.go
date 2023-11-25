@@ -5,7 +5,7 @@ import (
 	"io"
 )
 
-type PointUpsert struct {
+type PointsUpsert struct {
 	Response
 	Result OperationResult `json:"result"`
 }
@@ -22,11 +22,11 @@ type OperationResult struct {
 	Status      OperationResultStatus `json:"status"`
 }
 
-func (p *PointUpsert) AcceptContentType() string {
+func (p *PointsUpsert) AcceptContentType() string {
 	return "application/json"
 }
 
-func (p *PointUpsert) Decode(body io.Reader) error {
+func (p *PointsUpsert) Decode(body io.Reader) error {
 	err := json.NewDecoder(body).Decode(p)
 	if err != nil {
 		return err

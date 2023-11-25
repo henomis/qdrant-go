@@ -14,10 +14,10 @@ func main() {
 	client := qdrantgo.New("http://localhost:6333", "")
 
 	withPayload := true
-	resp := &response.PointSearch{}
-	err := client.PointSearch(
+	resp := &response.PointsSearch{}
+	err := client.PointsSearch(
 		context.Background(),
-		&request.PointSearch{
+		&request.PointsSearch{
 			CollectionName: "test",
 			Vector:         []float64{1.1, 2.2, 3.3, 4.4},
 			Limit:          10,

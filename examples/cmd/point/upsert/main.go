@@ -14,10 +14,10 @@ func main() {
 	client := qdrantgo.New("http://localhost:6333", "")
 
 	wait := true
-	resp := &response.PointUpsert{}
-	err := client.PointUpsert(
+	resp := &response.PointsUpsert{}
+	err := client.PointsUpsert(
 		context.Background(),
-		&request.PointUpsert{
+		&request.PointsUpsert{
 			CollectionName: "test",
 			Wait:           &wait,
 			Points: []request.Point{

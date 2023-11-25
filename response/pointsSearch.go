@@ -5,12 +5,12 @@ import (
 	"io"
 )
 
-type PointSearch struct {
+type PointsSearch struct {
 	Response
-	Result []PointSearchResult `json:"result"`
+	Result []PointsSearchResult `json:"result"`
 }
 
-type PointSearchResult struct {
+type PointsSearchResult struct {
 	ID      string                 `json:"id"`
 	Version uint64                 `json:"version"`
 	Score   float64                `json:"score"`
@@ -18,11 +18,11 @@ type PointSearchResult struct {
 	Vector  []float64              `json:"vector,omitempty"`
 }
 
-func (p *PointSearch) AcceptContentType() string {
+func (p *PointsSearch) AcceptContentType() string {
 	return "application/json"
 }
 
-func (p *PointSearch) Decode(body io.Reader) error {
+func (p *PointsSearch) Decode(body io.Reader) error {
 	err := json.NewDecoder(body).Decode(p)
 	if err != nil {
 		return err

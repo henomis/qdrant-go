@@ -17,7 +17,7 @@ const (
 	OrderingStrong Ordering = "strong"
 )
 
-type PointUpsert struct {
+type PointsUpsert struct {
 	CollectionName string    `json:"-"`
 	Wait           *bool     `json:"-"`
 	Ordering       *Ordering `json:"-"`
@@ -30,7 +30,7 @@ type Point struct {
 	Payload map[string]interface{} `json:"payload,omitempty"`
 }
 
-func (p *PointUpsert) Path() (string, error) {
+func (p *PointsUpsert) Path() (string, error) {
 	path := fmt.Sprintf("/collections/%s/points", p.CollectionName)
 
 	urlValues := restclientgo.NewURLValues()
@@ -45,7 +45,7 @@ func (p *PointUpsert) Path() (string, error) {
 	return path, nil
 }
 
-func (p *PointUpsert) Encode() (io.Reader, error) {
+func (p *PointsUpsert) Encode() (io.Reader, error) {
 	jsonBytes, err := json.Marshal(p)
 	if err != nil {
 		return nil, err
@@ -54,6 +54,6 @@ func (p *PointUpsert) Encode() (io.Reader, error) {
 	return bytes.NewReader(jsonBytes), nil
 }
 
-func (p *PointUpsert) ContentType() string {
+func (p *PointsUpsert) ContentType() string {
 	return "application/json"
 }

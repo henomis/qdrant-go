@@ -9,24 +9,17 @@ import (
 	"github.com/henomis/restclientgo"
 )
 
-type PointDelete struct {
+type VectorsDelete struct {
 	CollectionName string    `json:"-"`
-	Ordering       *Ordering `json:"-"`
-	Wait           *bool     `json:"-"`
-	Filter         Filter    `json:"filter,omitempty"`
 	Points         []string  `json:"points,omitempty"`
+	Filter         Filter    `json:"filter,omitempty"`
+	Vector         []string  `json:"vector"`
+	Wait           *bool     `json:"-"`
+	Ordering       *Ordering `json:"-"`
 }
 
-type M map[string]interface{}
-
-type Filter struct {
-	Should  []M `json:"should,omitempty"`
-	Must    []M `json:"must,omitempty"`
-	MustNot []M `json:"must_not,omitempty"`
-}
-
-func (p *PointDelete) Path() (string, error) {
-	path := fmt.Sprintf("/collections/%s/points/delete", p.CollectionName)
+func (p *VectorsDelete) Path() (string, error) {
+	path := fmt.Sprintf("/collections/%s/points/vectors/delete", p.CollectionName)
 
 	urlValues := restclientgo.NewURLValues()
 	urlValues.Add("ordering", (*string)(p.Ordering))
@@ -40,7 +33,7 @@ func (p *PointDelete) Path() (string, error) {
 	return path, nil
 }
 
-func (p *PointDelete) Encode() (io.Reader, error) {
+func (p *VectorsDelete) Encode() (io.Reader, error) {
 	jsonBytes, err := json.Marshal(p)
 	if err != nil {
 		return nil, err
@@ -49,6 +42,6 @@ func (p *PointDelete) Encode() (io.Reader, error) {
 	return bytes.NewReader(jsonBytes), nil
 }
 
-func (p *PointDelete) ContentType() string {
+func (p *VectorsDelete) ContentType() string {
 	return "application/json"
 }

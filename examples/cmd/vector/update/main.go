@@ -14,20 +14,16 @@ func main() {
 	client := qdrantgo.New("http://localhost:6333", "")
 
 	wait := true
-	resp := &response.PointsDelete{}
-	err := client.PointsDelete(
+	resp := &response.VectorsUpdate{}
+	err := client.VectorsUpdate(
 		context.Background(),
-		&request.PointsDelete{
+		&request.VectorsUpdate{
 			CollectionName: "test",
 			Wait:           &wait,
-			Filter: request.Filter{
-				Must: []request.M{
-					{
-						"key": "key",
-						"match": request.M{
-							"value": "value",
-						},
-					},
+			Points: []request.PointVectors{
+				{
+					ID:     "45b07125-f592-414f-a9d0-160c8ecc283a",
+					Vector: []float64{5, 6, 7, 8},
 				},
 			},
 		},

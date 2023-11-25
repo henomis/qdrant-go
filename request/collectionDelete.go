@@ -13,7 +13,7 @@ type CollectionDelete struct {
 }
 
 func (c *CollectionDelete) Path() (string, error) {
-	var urlValues restclientgo.URLValues
+	var urlValues = restclientgo.URLValues{}
 	urlValues.AddInt("timeout", c.Timeout)
 
 	parameters := ""
